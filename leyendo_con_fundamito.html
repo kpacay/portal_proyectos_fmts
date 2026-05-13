@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Proyectos - FMTS</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <header>
+        <div id="nav-placeholder"></div>
+    </header>
+
+    <div class="dash">
+        <div class="header">
+            <h1 class="fw-bold">Leyendo con FUNDAMITO</h1>
+            <p>Dashboard unificado de KPIs · Indicadores de alumnos, docentes y escuelas · 2024–2026</p>
+            <div class="header-badges">
+                <span class="badge badge-blue">Leyendo con FUNDAMITO</span>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab('resumen',event)">Resumen</button>
+            <button class="tab" onclick="switchTab('2024',event)">2024</button>
+            <button class="tab" onclick="switchTab('2025',event)">2025</button>
+            <button class="tab" onclick="switchTab('proyeccion',event)">Proyección 2026</button>
+        </div>
+
+        <!-- RESUMEN -->
+        <div id="tab-resumen" class="tab-content active">
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-label">Total alumnos acum.</div>
+                    <div class="kpi-value">544</div>
+                    <div class="kpi-sub">2024 + 2025</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">Meta alumnos 2026</div>
+                    <div class="kpi-value">420</div>
+                    <div class="kpi-sub">+8% vs 2025</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">Meta docentes 2026</div>
+                    <div class="kpi-value">25</div>
+                    <div class="kpi-sub">+25% vs 2025</div>
+                </div>
+            </div>
+
+            <p class="section-title">Crecimiento de participantes y línea de tendencia 2024–2026</p>
+            <div class="legend">
+                <span><span class="dot" style="background:#185FA5"></span>Alumnos</span>
+                <span><span class="dot" style="background:#1D9E75"></span>Docentes</span>
+                <span><span class="dot" style="background:#BA7517"></span>Escuelas</span>
+                <span><span class="dot-line" style="background:#7F77DD"></span>Tendencia total</span>
+                <span><span class="dot-line"
+                        style="background:#7F77DD; opacity:.4; border:1px dashed #7F77DD"></span>Proyección 2026</span>
+            </div>
+            <div class="chart-wrap" style="height:280px"><canvas id="chartMain"></canvas></div>
+
+            <p class="section-title">Distribución acumulada 2024–2025</p>
+            <div class="legend">
+                <span><span class="dot" style="background:#185FA5"></span>Alumnos 70%</span>
+                <span><span class="dot" style="background:#1D9E75"></span>Docentes 29%</span>
+                <span><span class="dot" style="background:#BA7517"></span>Escuelas 1%</span>
+            </div>
+            <div class="chart-wrap" style="height:220px"><canvas id="chartDonut"></canvas></div>
+        </div>
+
+        <!-- 2024 -->
+        <div id="tab-2024" class="tab-content">
+            <div class="year-cards">
+                <div class="year-card">
+                    <div class="year-label">2024</div>
+                    <div class="year-total">164</div>
+                    <div class="year-row"><span>Alumnos</span><strong>157</strong></div>
+                    <div class="year-row"><span>Docentes</span><strong>6</strong></div>
+                    <div class="year-row"><span>Escuelas</span><strong>1</strong></div>
+                </div>
+            </div>
+            <div class="my-4 text-center">
+                <h5>Comprensión Lectora</h5>
+                <p class="text-secondary">Comparativa entre Pre y Post-Test</p>
+                <div class="text-start">
+                    <h6>Segundo y Tercero Primaria</h6>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="section-title">Pre-Test</p>
+                                <div class="legend">
+                                    <span><span class="dot" style="background:#ffffff"></span>Deficiente</span>
+                                    <span><span class="dot" style="background:#ffffff"></span>Puede mejorar</span>
+                                    <span><span class="dot" style="background:#ffffff"></span>Buena</span>
+                                    <span><span class="dot" style="background:#ffffff"></span>Excelente</span>
+                                </div>
+                                <div class="chart-wrap" style="height:220px"><canvas id="2024preS-T"></canvas></div>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="section-title">Post-Test</p>
+                                <div class="legend">
+                                    <span><span class="dot" style="background:#ffffff"></span>Deficiente</span>
+                                    <span><span class="dot" style="background:#ffffff"></span>Puede mejorar</span>
+                                    <span><span class="dot" style="background:#ffffff"></span>Buena</span>
+                                    <span><span class="dot" style="background:#ffffff"></span>Excelente</span>
+                                </div>
+                                <div class="chart-wrap" style="height:220px"><canvas id="2024postS-T"></canvas></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-start">
+                    <h6>Segundo Ciclo</h6>
+                    <div class="container">
+                        <div>
+                            <p class="section-title">Pre-Test</p>
+                            <div class="legend">
+                                <div class="chart-wrap" style="height:220px"><canvas id="2024preC-S"></canvas></div>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="section-title">Post-Test</p>
+                            <div class="legend">
+
+                                <div class="chart-wrap" style="height:220px"><canvas id="2024postC-S"></canvas></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 2025 -->
+        <div id="tab-2025" class="tab-content">
+            <div class="year-cards">
+                <div class="year-card highlight">
+                    <div class="year-label">2025 ✦</div>
+                    <div class="year-total">412</div>
+                    <div class="year-row"><span>Alumnos</span><strong>387</strong></div>
+                    <div class="year-row"><span>Docentes</span><strong>20</strong></div>
+                    <div class="year-row"><span>Escuelas</span><strong>4</strong></div>
+                    <span class="growth-badge g-up">+151% vs 2024</span>
+                </div>
+
+            </div>
+
+            <div class="my-4 text-center">
+                <h5>Comprensión Lectora</h5>
+                <p class="text-secondary">Comparativa entre Pre y Post-Test</p>
+                <div class="text-start">
+                    <h6>Segundo y Tercero Primaria</h6>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="section-title">Pre-Test</p>
+                                <div class="legend">
+                                    <span><span class="dot" style="background:#ffffff"></span>Deficiente</span>
+                                    <span><span class="dot" style="background:#ffffff"></span>Puede mejorar</span>
+                                    <span><span class="dot" style="background:#ffffff"></span>Buena</span>
+                                    <span><span class="dot" style="background:#ffffff"></span>Excelente</span>
+                                </div>
+                                <div class="chart-wrap" style="height:220px"><canvas id="preS-T"></canvas></div>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="section-title">Post-Test</p>
+                                <div class="legend">
+                                    <span><span class="dot" style="background:#ffffff"></span>Deficiente</span>
+                                    <span><span class="dot" style="background:#ffffff"></span>Puede mejorar</span>
+                                    <span><span class="dot" style="background:#ffffff"></span>Buena</span>
+                                    <span><span class="dot" style="background:#ffffff"></span>Excelente</span>
+                                </div>
+                                <div class="chart-wrap" style="height:220px"><canvas id="postS-T"></canvas></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="text-start">
+                    <h6>Segundo Ciclo</h6>
+                    <div class="container">
+                        <div>
+                            <p class="section-title">Pre-Test</p>
+                            <div class="legend">
+                                <div class="chart-wrap" style="height:220px"><canvas id="2025preC-S"></canvas></div>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="section-title">Post-Test</p>
+                            <div class="legend">
+                                <div class="chart-wrap" style="height:220px"><canvas id="2025postC-S"></canvas>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- PROYECCION -->
+        <div id="tab-proyeccion" class="tab-content">
+            <div class="proj-card">
+                <div style="font-size:15px;font-weight:500;color:var(--color-text-primary);margin-bottom:4px">Simulador
+                    de meta 2026</div>
+                <div style="font-size:13px;color:var(--color-text-secondary);margin-bottom:16px">Ajusta la distribución
+                    proyectada de alumnos, docentes y escuelas</div>
+
+                <div class="slider-wrap">
+                    <span style="min-width:90px;font-size:12px"><span class="kpi-dot"
+                            style="background:#185FA5"></span>Alumnos</span>
+                    <input type="range" id="s-alu" min="0" max="600" value="420" step="1" oninput="updateProj()">
+                    <span class="slider-val" id="v-alu">420</span>
+                </div>
+                <div class="slider-wrap">
+                    <span style="min-width:90px;font-size:12px"><span class="kpi-dot"
+                            style="background:#1D9E75"></span>Docentes</span>
+                    <input type="range" id="s-doc" min="0" max="60" value="25" step="1" oninput="updateProj()">
+                    <span class="slider-val" id="v-doc">25</span>
+                </div>
+                <div class="slider-wrap">
+                    <span style="min-width:90px;font-size:12px"><span class="kpi-dot"
+                            style="background:#BA7517"></span>Escuelas</span>
+                    <input type="range" id="s-esc" min="1" max="20" value="5" step="1" oninput="updateProj()">
+                    <span class="slider-val" id="v-esc">5</span>
+                </div>
+
+                <div class="target-bar-wrap">
+                    <div
+                        style="display:flex;justify-content:space-between;font-size:12px;color:var(--color-text-secondary);margin-bottom:5px">
+                        <span>Alumnos proyectados vs meta (420)</span><span id="p-pct-label">100% · 420 / 420</span>
+                    </div>
+                    <div class="target-bar-bg">
+                        <div class="target-bar-fill" id="target-bar" style="width:100%"></div>
+                    </div>
+                    <div class="target-bar-label"><span>0</span><span>Meta: 420 alumnos</span>
+                    </div>
+                </div>
+
+                <div class="proj-grid">
+                    <div class="proj-num">
+                        <div class="lbl">Total participantes</div>
+                        <div class="val" id="p-total">445
+                        </div>
+                    </div>
+                    <div class="proj-num">
+                        <div class="lbl">Alumnos vs meta</div>
+                        <div class="val" id="p-gap" style="color:#1D9E75">±0</div>
+                    </div>
+                    <div class="proj-num">
+                        <div class="lbl">Crecimiento vs 2025</div>
+                        <div class="val" id="p-crec">+9%</div>
+                    </div>
+                    <div class="proj-num">
+                        <div class="lbl">Ratio alumnos / docente</div>
+                        <div class="val" id="p-ratio">16.8</div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="section-title">Línea de crecimiento proyectada 2024–2026</p>
+            <div class="legend">
+                <span><span class="dot-line" style="background:#185FA5"></span>Histórico real</span>
+                <span><span class="dot-line" style="background:#7F77DD;border:1px dashed #7F77DD"></span>Proyección
+                    2026</span>
+            </div>
+            <div class="chart-wrap" style="height:260px"><canvas id="chartProj"></canvas></div>
+        </div>
+
+    </div>
+
+
+    <script type="module" src="./js/dashboard_lcf.js"></script>
+
+    <script src="./js/nav.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <footer class="bg-primary text-white text-center py-3">
+        <p class="mb-0">© 2026 Fundación Miguel Torrebiarte - Portal de Proyectos</p>
+    </footer>
+</body>
+
+</html>

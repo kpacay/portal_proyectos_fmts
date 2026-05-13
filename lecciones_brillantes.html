@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Proyectos - FMTS</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <header>
+        <div id="nav-placeholder"></div>
+    </header>
+
+    <div class="dash">
+        <div class="header">
+            <h1 class="fw-bold">Lecciones Brillantes y Becas Escolaris para Graduandos</h1>
+            <p>Dashboard unificado de KPIs · 2017–2026</p>
+            <div class="header-badges">
+                <span class="badge badge-blue">Lecciones Brillantes</span>
+                <span class="badge badge-green">Becas Escolaris para Graduandos</span>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab('lecciones',this)">Lecciones Brillantes</button>
+            <button class="tab" onclick="switchTab('becas',this)">Escolaris Graduandos</button>
+            <button class="tab" onclick="switchTab('proyeccion',this)">Proyección 2026</button>
+        </div>
+
+        <!-- LECCIONES BRILLANTES -->
+        <div id="tab-lecciones" class="tab-content active">
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-label">Total inscritos acum.</div>
+                    <div class="kpi-value">300</div>
+                    <div class="kpi-sub">2017–2025</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">Total certificados acum.</div>
+                    <div class="kpi-value">165</div>
+                    <div class="kpi-sub">2017–2025</div>
+                </div>
+            </div>
+
+            <p class="section-title">Inscritos y certificados · 2017–2026</p>
+            <div class="legend">
+                <span><span class="dot" style="background:rgba(24,95,165,0.65)"></span>Inscritos por año</span>
+                <span><span class="dot" style="background:rgba(91,159,224,0.75)"></span>Certificados por año</span>
+                <span><span class="dot-line" style="background:#185FA5"></span>Inscritos acumulados</span>
+                <span><span class="dot-line"
+                        style="background:#7F77DD; opacity:.4; border:1px dashed #7F77DD"></span>Proyección 2026</span>
+            </div>
+            <div class="chart-wrap" style="height:260px"><canvas id="chartLB"></canvas></div>
+
+            <p class="section-title">Historial año a año</p>
+            <div class="year-cards">
+                <div class="year-card">
+                    <div class="year-label">2017</div>
+                    <div class="year-total">17</div>
+                    <div class="year-row"><span>Inscritos</span><strong>17</strong></div>
+                    <div class="year-row"><span>Certificados</span><strong>10</strong></div>
+                    <div class="year-row"><span>Tasa</span><strong>59%</strong></div><span
+                        class="growth-badge g-base">Año base</span>
+                </div>
+                <div class="year-card">
+                    <div class="year-label">2018</div>
+                    <div class="year-total">20</div>
+                    <div class="year-row"><span>Inscritos</span><strong>20</strong></div>
+                    <div class="year-row"><span>Certificados</span><strong>12</strong></div>
+                    <div class="year-row"><span>Tasa</span><strong>60%</strong></div><span
+                        class="growth-badge g-up">+18%</span>
+                </div>
+                <div class="year-card">
+                    <div class="year-label">2019</div>
+                    <div class="year-total">30</div>
+                    <div class="year-row"><span>Inscritos</span><strong>30</strong></div>
+                    <div class="year-row"><span>Certificados</span><strong>12</strong></div>
+                    <div class="year-row"><span>Tasa</span><strong>40%</strong></div><span
+                        class="growth-badge g-up">+50%</span>
+                </div>
+                <div class="year-card">
+                    <div class="year-label">2020</div>
+                    <div class="year-total">30</div>
+                    <div class="year-row"><span>Inscritos</span><strong>30</strong></div>
+                    <div class="year-row"><span>Certificados</span><strong>12</strong></div>
+                    <div class="year-row"><span>Tasa</span><strong>40%</strong></div><span
+                        class="growth-badge g-flat">Estable</span>
+                </div>
+                <div class="year-card">
+                    <div class="year-label">2021</div>
+                    <div class="year-total">30</div>
+                    <div class="year-row"><span>Inscritos</span><strong>30</strong></div>
+                    <div class="year-row"><span>Certificados</span><strong>17</strong></div>
+                    <div class="year-row"><span>Tasa</span><strong>57%</strong></div><span
+                        class="growth-badge g-flat">Estable</span>
+                </div>
+                <div class="year-card">
+                    <div class="year-label">2022</div>
+                    <div class="year-total">35</div>
+                    <div class="year-row"><span>Inscritos</span><strong>35</strong></div>
+                    <div class="year-row"><span>Certificados</span><strong>17</strong></div>
+                    <div class="year-row"><span>Tasa</span><strong>49%</strong></div><span
+                        class="growth-badge g-up">+17%</span>
+                </div>
+                <div class="year-card">
+                    <div class="year-label">2023</div>
+                    <div class="year-total">45</div>
+                    <div class="year-row"><span>Inscritos</span><strong>45</strong></div>
+                    <div class="year-row"><span>Certificados</span><strong>23</strong></div>
+                    <div class="year-row"><span>Tasa</span><strong>51%</strong></div><span
+                        class="growth-badge g-up">+29%</span>
+                </div>
+                <div class="year-card">
+                    <div class="year-label">2024</div>
+                    <div class="year-total">43</div>
+                    <div class="year-row"><span>Inscritos</span><strong>43</strong></div>
+                    <div class="year-row"><span>Certificados</span><strong>30</strong></div>
+                    <div class="year-row"><span>Tasa</span><strong>70%</strong></div><span
+                        class="growth-badge g-flat">−4%</span>
+                </div>
+                <div class="year-card hl-blue">
+                    <div class="year-label">2025 ✦</div>
+                    <div class="year-total">50</div>
+                    <div class="year-row"><span>Inscritos</span><strong>50</strong></div>
+                    <div class="year-row"><span>Certificados</span><strong>32</strong></div>
+                    <div class="year-row"><span>Tasa</span><strong>64%</strong></div><span
+                        class="growth-badge g-up">+16%</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- BECAS ESCOLARIS -->
+        <div id="tab-becas" class="tab-content">
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-label">Total inscritos acum.</div>
+                    <div class="kpi-value">59</div>
+                    <div class="kpi-sub">2022–2025</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">Total graduados acum.</div>
+                    <div class="kpi-value">45</div>
+                    <div class="kpi-sub">2022–2025</div>
+                </div>
+            </div>
+
+            <p class="section-title">Alumnos inscritos y graduados · 2022–2026</p>
+            <div class="legend">
+                <span><span class="dot" style="background:rgba(24,95,165,0.65)"></span>Inscritos por año</span>
+                <span><span class="dot" style="background:rgba(91,159,224,0.75)"></span>Graduados por año</span>
+                <span><span class="dot-line" style="background:#185FA5"></span>Graduados acumulados</span>
+                <span><span class="dot-line"
+                        style="background:#7F77DD; opacity:.4; border:1px dashed #7F77DD"></span>Proyección 2026</span>
+
+            </div>
+            <div class="chart-wrap" style="height:260px"><canvas id="chartBEG"></canvas></div>
+
+            <p class="section-title">Historial año a año</p>
+            <div class="year-cards">
+                <div class="year-card">
+                    <div class="year-label">2022</div>
+                    <div class="year-total">5</div>
+                    <div class="year-row"><span>Inscritos</span><strong>6</strong></div>
+                    <div class="year-row"><span>Graduados</span><strong>5</strong></div>
+                    <div class="year-row"><span>Acumulado grad.</span><strong>5</strong></div><span
+                        class="growth-badge g-base">Año base</span>
+                </div>
+                <div class="year-card">
+                    <div class="year-label">2023</div>
+                    <div class="year-total">3</div>
+                    <div class="year-row"><span>Inscritos</span><strong>5</strong></div>
+                    <div class="year-row"><span>Graduados</span><strong>3</strong></div>
+                    <div class="year-row"><span>Acumulado grad.</span><strong>8</strong></div><span
+                        class="growth-badge g-down">−40%</span>
+                </div>
+                <div class="year-card">
+                    <div class="year-label">2024</div>
+                    <div class="year-total">16</div>
+                    <div class="year-row"><span>Inscritos</span><strong>20</strong></div>
+                    <div class="year-row"><span>Graduados</span><strong>16</strong></div>
+                    <div class="year-row"><span>Acumulado grad.</span><strong>24</strong></div><span
+                        class="growth-badge g-up">+433%</span>
+                </div>
+                <div class="year-card hl-green">
+                    <div class="year-label">2025 ✦</div>
+                    <div class="year-total">21</div>
+                    <div class="year-row"><span>Inscritos</span><strong>28</strong></div>
+                    <div class="year-row"><span>Graduados</span><strong>21</strong></div>
+                    <div class="year-row"><span>Acumulado grad.</span><strong>45</strong></div><span
+                        class="growth-badge g-up">+31%</span>
+                </div>
+                <div class="year-card" style="border-style:dashed">
+                    <div class="year-label">2026 (proy.)</div>
+                    <div class="year-total" style="color:#185FA5">24</div>
+                    <div class="year-row"><span>Inscritos</span><strong>25</strong></div>
+                    <div class="year-row"><span>Graduados proy.</span><strong>24</strong></div>
+                    <div class="year-row"><span>Acumulado grad.</span><strong>69</strong></div><span
+                        class="growth-badge g-proj">+14%</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROYECCION -->
+        <div id="tab-proyeccion" class="tab-content">
+            <div class="proj-card">
+                <div class="proj-card-title" style="color:#185FA5">Lecciones Brillantes · Proyección 2026</div>
+                <div class="proj-card-sub">Ajusta inscritos y certificados esperados</div>
+                <div class="slider-wrap">
+                    <span style="min-width:110px"><span class="kpi-dot"
+                            style="background:#185FA5"></span>Inscritos</span>
+                    <input type="range" id="lb-ins" min="0" max="100" value="55" step="1" oninput="updateAll()">
+                    <span class="slider-val" id="lv-ins">55</span>
+                </div>
+                <div class="slider-wrap">
+                    <span style="min-width:110px"><span class="kpi-dot"
+                            style="background:#1D9E75"></span>Certificados</span>
+                    <input type="range" id="lb-cer" min="0" max="100" value="35" step="1" oninput="updateAll()">
+                    <span class="slider-val" id="lv-cer">35</span>
+                </div>
+                <div style="font-size:12px;color:#73726c;margin-bottom:5px;display:flex;justify-content:space-between">
+                    <span>Tasa de certificación proyectada</span><span id="lb-tasa-lbl">64% · 35/55</span>
+                </div>
+                <div class="target-bar-bg">
+                    <div class="target-bar-fill" id="lb-bar" style="width:64%;background:#1D9E75"></div>
+                </div>
+                <div class="bar-labels"><span>0%</span><span>100%</span></div>
+                <div class="proj-grid">
+                    <div class="proj-num">
+                        <div class="lbl">Inscritos proy.</div>
+                        <div class="val" id="lb-p-ins">55</div>
+                    </div>
+                    <div class="proj-num">
+                        <div class="lbl">Certificados proy.</div>
+                        <div class="val" id="lb-p-cer">35</div>
+                    </div>
+                    <div class="proj-num">
+                        <div class="lbl">Var. inscritos vs 2025</div>
+                        <div class="val" id="lb-p-ci">+10%</div>
+                    </div>
+                    <div class="proj-num">
+                        <div class="lbl">Var. certificados vs 2025</div>
+                        <div class="val" id="lb-p-cc">+9%</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="proj-card">
+                <div class="proj-card-title" style="color:#185FA5">Becas Escolaris para Graduandos · Proyección 2026
+                </div>
+                <div class="proj-card-sub">Inscritos 2026: 25 · Proyección de alumnos graduados</div>
+                <div class="slider-wrap">
+                    <span style="min-width:110px"><span class="kpi-dot" style="background:#185FA5"></span>Graduados
+                        2026</span>
+                    <input type="range" id="beg-grad" min="0" max="60" value="24" step="1" oninput="updateAll()">
+                    <span class="slider-val" id="bv-grad">24</span>
+                </div>
+                <div style="font-size:12px;color:#73726c;margin-bottom:5px;display:flex;justify-content:space-between">
+                    <span>Crecimiento vs 2025 (21 graduados)</span><span id="beg-crec-lbl">+14%</span>
+                </div>
+                <div class="target-bar-bg">
+                    <div class="target-bar-fill" id="beg-bar" style="width:80%;background:#185FA5"></div>
+                </div>
+                <div class="bar-labels"><span>0</span><span>Meta ref.: 30</span></div>
+                <div class="proj-grid">
+                    <div class="proj-num">
+                        <div class="lbl">Inscritos 2026</div>
+                        <div class="val" style="color:#185FA5">25</div>
+                    </div>
+                    <div class="proj-num">
+                        <div class="lbl">Graduados proy.</div>
+                        <div class="val" id="beg-p-grad">24</div>
+                    </div>
+                    <div class="proj-num">
+                        <div class="lbl">Acumulado 2022–2026</div>
+                        <div class="val" id="beg-p-acum">69</div>
+                    </div>
+                    <div class="proj-num">
+                        <div class="lbl">Variación vs 2025</div>
+                        <div class="val" id="beg-p-crec">+14%</div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="section-title">Línea de crecimiento proyectada · ambos programas 2026</p>
+            <div class="legend">
+                <span><span class="dot-line" style="background:#185FA5"></span>LB inscritos</span>
+                <span><span class="dot-line" style="background:#5B9FE0"></span>LB certificados</span>
+                <span><span class="dot-line" style="background:#1D9E75"></span>BEG inscritos</span>
+                <span><span class="dot-line" style="background:#E07B2A"></span>BEG graduados</span>
+            </div>
+            <div class="chart-wrap" style="height:300px"><canvas id="chartProjCombined"></canvas></div>
+        </div>
+    </div>
+
+    <script type="module" src="./js/dashboard_lb.js"></script>
+
+    <script src="./js/nav.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <footer class="bg-primary text-white text-center py-3">
+        <p class="mb-0">© 2026 Fundación Miguel Torrebiarte - Portal de Proyectos</p>
+    </footer>
+</body>
+
+</html>

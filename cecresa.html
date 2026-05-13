@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Proyectos - FMTS</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <header>
+        <div id="nav-placeholder"></div>
+    </header>
+
+    <div class="dash">
+        <div class="header">
+            <h1>Centro de Crecimiento Saludable - CECRESA</h1>
+            <p>Dashboard de KPIs - Indicadores de beneficiados directos e indirectos · 2022–2026</p>
+            <div class="header-badges">
+                <span class="badge badge-blue">CECRESA</span>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" data-tab="resumen">Resumen</button>
+            <button class="tab" data-tab="2022">2022</button>
+            <button class="tab" data-tab="2023-24">2023-2024</button>
+            <button class="tab" data-tab="2025">2025</button>
+        </div>
+
+        <!--RESUMEN-->
+        <div id="tab-resumen" class="tab-content active">
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-label">Beneficiados</div>
+                    <div class="kpi-value">3243</div>
+                    <div class="kpi-sub">2022 – 2025</div>
+                </div>
+            </div>
+            <p class="section-title">Crecimiento de participantes y línea de tendencia 2022–2026</p>
+            <div class="legend">
+                <span><span class="dot" style="background:#185FA5"></span>Directos</span>
+                <span><span class="dot" style="background:#1D9E75"></span>Indirectos</span>
+                <span><span class="dot-line" style="background:#7F77DD"></span>Tendencia total</span>
+            </div>
+            <div class="chart-wrap" style="height:280px"><canvas id="chartMain"></canvas></div>
+
+        </div>
+
+        <!--2022-->
+        <div id="tab-2022" class="tab-content">
+            <div class=" kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-label">Directos</div>
+                    <div class="kpi-value">114</div>
+
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">Indirectos</div>
+                    <div class="kpi-value">300</div>
+                </div>
+            </div>
+
+            <!--Directos -->
+            <p class="section-title">Beneficiados directos2022</p>
+            <div class="legend">
+                <span><span class="dot" style="background:#ffffff"></span>Niños: 42</span>
+                <span><span class="dot" style="background:#ffffff"></span>Mujeres: 67</span>
+                <span><span class="dot" style="background:#ffffff"></span>Educadoras: 4</span>
+                <span><span class="dot" style="background:#ffffff"></span>Gestor/a: 1</span>
+
+            </div>
+            <div class="chart-wrap" style="height:220px"><canvas id="chartCecresaD2022"></canvas></div>
+
+            <!--Indirectos -->
+            <p class="section-title">Beneficiados indirectos 2022</p>
+            <div class="legend">
+                <span><span class="dot" style="background:#ffffff"></span>Familias: 50</span>
+                <span><span class="dot" style="background:#ffffff"></span>Personas: 250</span>
+                <span><span class="dot" style="background:#ffffff"></span>Niños: 0</span>
+                <span><span class="dot" style="background:#ffffff"></span>Docentes: 0</span>
+            </div>
+            <div class="chart-wrap" style="height:220px"><canvas id="chartCecresaI2022"></canvas></div>
+
+        </div>
+
+        <!--2023-2024 -->
+        <div id="tab-2023-24" class="tab-content">
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-label">Directos</div>
+                    <div class="kpi-value">182</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">Indirectos</div>
+                    <div class="kpi-value">300</div>
+                </div>
+            </div>
+
+            <!--Directos -->
+            <p class="section-title">Beneficiados directos 2023 - 2024</p>
+            <div class="legend">
+                <span><span class="dot" style="background:#ffffff"></span>Niños: 90</span>
+                <span><span class="dot" style="background:#ffffff"></span>Mujeres: 82</span>
+                <span><span class="dot" style="background:#ffffff"></span>Educadoras: 8</span>
+                <span><span class="dot" style="background:#ffffff"></span>Gestor/a: 2</span>
+            </div>
+            <div class="chart-wrap" style="height:220px"><canvas id="chartCecresaD2023-24"></canvas></div>
+
+            <!--Indirectos -->
+            <p class="section-title">Beneficiados indirectos 2023 - 2024</p>
+            <div class="legend">
+                <span><span class="dot" style="background:#ffffff"></span>Familias: 82</span>
+                <span><span class="dot" style="background:#ffffff"></span>Personas: 410</span>
+                <span><span class="dot" style="background:#ffffff"></span>Niños: 0</span>
+                <span><span class="dot" style="background:#ffffff"></span>Docentes: 0</span>
+            </div>
+            <div class="chart-wrap" style="height:220px"><canvas id="chartCecresaI2023-24"></canvas></div>
+
+        </div>
+
+        <!--2025-->
+        <div id="tab-2025" class="tab-content">
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-label">Directos</div>
+                    <div class="kpi-value">99</div>
+
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">Indirectos</div>
+                    <div class="kpi-value">2056</div>
+                </div>
+            </div>
+
+            <!--Directos -->
+            <p class="section-title">Beneficiados directos 2025</p>
+            <div class="legend">
+                <span><span class="dot" style="background:#ffffff"></span>Niños: 49</span>
+                <span><span class="dot" style="background:#ffffff"></span>Mujeres: 45</span>
+                <span><span class="dot" style="background:#ffffff"></span>Educadoras: 4</span>
+                <span><span class="dot" style="background:#ffffff"></span>Gestor/a: 1</span>
+            </div>
+            <div class="chart-wrap" style="height:220px"><canvas id="chartCecresaD2025"></canvas></div>
+
+            <!--Indirectos -->
+            <p class="section-title">Beneficiados indirectos 2025</p>
+            <div class="legend">
+                <span><span class="dot" style="background:#ffffff"></span>Familias: 300</span>
+                <span><span class="dot" style="background:#ffffff"></span>Personas: 1500</span>
+                <span><span class="dot" style="background:#ffffff"></span>Niños: 247</span>
+                <span><span class="dot" style="background:#ffffff"></span>Docentes: 9</span>
+            </div>
+            <div class="chart-wrap" style="height:220px"><canvas id="chartCecresaI2025"></canvas></div>
+
+
+        </div>
+
+    </div>
+
+    <script type="module" src="./js/dash_cecresa.js"></script>
+
+    <script src="./js/nav.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <footer class="bg-primary text-white text-center py-3">
+        <p class="mb-0">© 2026 Fundación Miguel Torrebiarte - Portal de Proyectos</p>
+    </footer>
+
+</body>
+
+</html>
