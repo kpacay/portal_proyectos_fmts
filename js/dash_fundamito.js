@@ -88,14 +88,14 @@ let projChart = new Chart(document.getElementById('chartProj'), {
         datasets: [
             {
                 label: 'Total histórico',
-                data: [3658, null],
+                data: [3446, null],
                 borderColor: '#185FA5', backgroundColor: 'rgba(24,95,165,0.08)',
                 borderWidth: 2.5, pointRadius: 5, pointBackgroundColor: '#185FA5',
                 tension: 0.3, fill: true
             },
             {
                 label: 'Proyección 2026',
-                data: [3658, 1358],
+                data: [3446, 4158],
                 borderColor: '#7F77DD', backgroundColor: 'rgba(127,119,221,0.06)',
                 borderWidth: 2.5, borderDash: [7, 4],
                 pointRadius: [0, 6], pointBackgroundColor: '#7F77DD',
@@ -127,15 +127,15 @@ function updateProj() {
     document.getElementById('v-esc').textContent = esc;
 
     const total = alu + doc + esc;
-    const gap = alu - 1200;
-    const pct = Math.min(Math.round((alu / 1200) * 100), 200);
+    const gap = alu - 2100;
+    const pct = Math.min(Math.round((alu / 2100) * 100), 200);
     const crec = Math.round(((alu - 3424) / 3424) * 100);
     const ratio = doc > 0 ? (alu / doc).toFixed(1) : '—';
 
     document.getElementById('p-total').textContent = fmt(total);
     document.getElementById('p-gap').textContent = gap === 0 ? '±0' : (gap > 0 ? '+' + fmt(gap) : '−' + fmt(Math.abs(gap)));
     document.getElementById('p-gap').style.color = gap >= 0 ? '#1D9E75' : '#D85A30';
-    document.getElementById('p-pct-label').textContent = Math.min(pct, 100) + '% · ' + fmt(alu) + ' / 1,200';
+    document.getElementById('p-pct-label').textContent = Math.min(pct, 100) + '% · ' + fmt(alu) + ' / 2,100';
     document.getElementById('target-bar').style.width = Math.min(pct, 100) + '%';
     document.getElementById('target-bar').style.background = gap < 0 ? '#D85A30' : '#185FA5';
     document.getElementById('p-crec').textContent = (crec >= 0 ? '+' : '') + crec + '%';
