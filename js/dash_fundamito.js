@@ -14,12 +14,12 @@ new Chart(document.getElementById('chartMain'), {
     data: {
         labels: years,
         datasets: [
-            { label: 'Alumnos', data: [3291, null], backgroundColor: '#185FA5', stack: 'real', order: 2 },
-            { label: 'Docentes', data: [133, null], backgroundColor: '#1D9E75', stack: 'real', order: 2 },
-            { label: 'Escuelas', data: [22, null], backgroundColor: '#BA7517', stack: 'real', order: 2 },
+            { label: 'Alumnos', data: [3291, 4000], backgroundColor: '#185FA5', stack: 'real', order: 2 },
+            { label: 'Docentes', data: [133, 130], backgroundColor: '#1D9E75', stack: 'real', order: 2 },
+            { label: 'Escuelas', data: [22, 28], backgroundColor: '#BA7517', stack: 'real', order: 2 },
             {
                 label: 'Tendencia total', type: 'line',
-                data: [3446, 1358],
+                data: [3446, 4158],
                 borderColor: '#7F77DD', backgroundColor: 'transparent',
                 borderWidth: 2.5, pointRadius: 5, pointBackgroundColor: '#7F77DD',
                 tension: 0.35, order: 1, stack: undefined,
@@ -46,27 +46,27 @@ new Chart(document.getElementById('chartMain'), {
 createGroupedLineChart(document.getElementById('chartComparativa'), {
     labels: ['2025', '2026'],
 
-    totals: [3424, 10],
+    totals: [3424, 4130],
 
     datasets: [
         {
             label: 'Docentes',
-            data: [133, 1],
+            data: [84, 90],
             backgroundColor: '#1D9E75'
         },
         {
-            label: 'Niños',
-            data: [3291, 0],
+            label: 'Total Alumnos',
+            data: [3291, 4000],
             backgroundColor: '#1B7F8E'
         },
         {
-            label: 'Niños en plataforma',
-            data: [411, 3],
+            label: 'Alumnos en plataforma',
+            data: [410, 2100],
             backgroundColor: '#ddc53e'
         },
         {
             label: 'Escuelas',
-            data: [22, 2],
+            data: [21, 28],
             backgroundColor: '#BA7517'
         }
     ]

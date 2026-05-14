@@ -335,3 +335,4 @@ function updateAll() {
 window.addEventListener('DOMContentLoaded', initLB);
 
 window.switchTab = switchTab;
+window.updateAll = updateAll;

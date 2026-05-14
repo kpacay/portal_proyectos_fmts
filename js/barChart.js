@@ -215,6 +215,7 @@ export function createGroupedLineChart(ctx, {
                 y: {
                     stacked: false,
                     beginAtZero: true,
+                    grace: '20%',
                     grid: { color: () => getChartColors().grid },
                     ticks: { color: () => getChartColors().lbl }
                 }
